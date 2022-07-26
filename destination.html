@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="fav.png" type="image/x-icon">
+    <title>Space Tourism | challenge by front-end mentor</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        @media(max-width:375px){
+            body{
+            background: url('bdm.jpg');
+            height: auto;
+            background-repeat: no-repeat;
+            background-size: cover;
+            }
+            .container{
+                margin: 10px 20px;
+                max-width: 375px;
+                display: flex;
+                justify-content: space-between;
+                height: auto;
+                align-content: center;
+                position: relative;
+            }
+            .container #imgI{
+                height: 24px;
+                align-self: center;
+                display: none;
+            }
+            .container #list{
+                display: none;
+            }
+            .container #list ul{
+                margin: 5px 0;
+                list-style: none;
+                color: white;
+            }
+            .container #img{
+                align-self: center;
+                height: 24px;
+            }
+            .container #list ul li{
+                margin: 5px auto;
+                background-color: rgba(255, 255, 255, 0.8);
+            }
+            .container #list ul li a{
+                text-decoration: none;
+                padding: 2px 5px;
+                color: rgba(255, 255, 255, 0.8);
+            }
+            .container #list ul li:nth-of-type(1){
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+            .container #list ul li:hover{
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+            .container img:nth-of-type(1){
+                height: 48px;
+            }
+            .pick-image{
+                text-align: center;
+                /* min-width: 350px; */
+                margin: 30px 10px;
+            }
+            .pick-image img{
+                width: 355px;
+            }
+            .pick-image h1{
+                color: rgba(255, 255, 255, 0.8);
+                padding-bottom: 10px;
+                font-weight: 100;
+            }
+            .pick-image h1 span{
+                color: rgba(255, 255, 255, 0.5);
+            }
+            .property{
+                margin: 20px 10px;
+                text-align: center;
+            }
+            .property .planet ol{
+                justify-content: center;
+                display: flex;
+            }
+            .property .planet ol li{
+                list-style: none;
+                font-size: 18px;
+                padding-right: 10px;
+                color: rgba(225, 225, 225, 0.6);
+                padding-bottom: 10px;
+            }
+            .property h1{
+                font-size: 80px;
+                color: rgba(255, 255, 255, 0.9);
+                font-weight: 100;
+                padding-bottom: 15px;
+            }
+            .property p{
+                line-height: 1.2;
+                font-size: 17px;
+                color: rgba(225, 225, 225, 0.6);
+                padding-bottom: 10px;
+            }
+            hr{
+                margin-bottom: 10px;
+            }
+            table{
+                width: 100%;
+            }
+            table tr:nth-of-type(1){
+                font-size: 14px;
+                padding: 8px 0;
+                color: rgba(225, 225, 225, 0.6);
+            }
+            table tr:nth-of-type(2){
+                color: rgba(255, 255, 255, 0.7);
+                font-size: 23px;
+                font-size: 5px 0;
+                font-weight: 100;
+            }
+
+
+
+
+
+
+
+
+
+
+             /* conditional css */
+
+            .imgBtnI, .imgBtn{
+                position: absolute;
+                top: 11px;
+                right: 0;
+            }
+        }
+        @media(max-width:800px) and (min-width:376px){
+            body{
+                background-image: url('bdt.jpg');
+                background-repeat: no-repeat;
+                background-size: cover ;
+            }
+            .container{
+                height: auto;
+                display: flex;
+                margin: 10px 20px;
+                max-width: 800px;
+                align-content: center;
+                justify-content: space-between;
+            }
+            .container #list ul{
+            margin: 5px 0;
+            height: auto;
+            display: flex;
+            align-content: center;
+            list-style-type: none;
+            background-color: rgba(0, 0, 0, 0.8);
+            }
+            .container #list ul li{
+            align-self: center;
+            padding: 10px 20px;
+            }
+            .container #list ul li a{
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.7);
+            }
+            .container #list ul li a:hover{
+            border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+            }
+            .pick-image{
+                text-align: center;
+                /* min-width: 350px; */
+                margin: 50px 50px;
+            }
+            .pick-image img{
+                width: 500px;
+            }
+            .pick-image h1{
+                color: rgba(255, 255, 255, 0.8);
+                padding-bottom: 20px;
+                font-weight: 100;
+                font-size: 25px;
+            }
+            .pick-image h1 span{
+                color: rgba(255, 255, 255, 0.5);
+            }
+            .property{
+                margin: 50px 100px;
+                text-align: center;
+            }
+            .property .planet ol{
+                justify-content: center;
+                display: flex;
+            }
+            .property .planet ol li{
+                list-style: none;
+                font-size: 25px;
+                padding-right: 10px;
+                color: rgba(225, 225, 225, 0.6);
+                padding-bottom: 10px;
+            }
+            .property h1{
+                font-size: 120px;
+                color: rgba(255, 255, 255, 0.9);
+                font-weight: 100;
+                padding-bottom: 15px;
+            }
+            .property p{
+                line-height: 1.5;
+                font-size: 20px;
+                color: rgba(225, 225, 225, 0.6);
+                padding-bottom: 30px;
+            }
+            hr{
+                margin-bottom: 30px;
+            }
+            table{
+                width: 100%;
+            }
+            table tr:nth-of-type(1){
+                font-size: 20px;
+                padding: 8px 0;
+                color: rgba(225, 225, 225, 0.6);
+            }
+            table tr:nth-of-type(2){
+                color: rgba(255, 255, 255, 0.7);
+                font-size: 30px;
+                font-size: 5px 0;
+                font-weight: 100;
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              /* conditional css */
+     
+              .container #list{
+                display: block;
+                height: auto;
+            }
+
+            .container img:nth-of-type(2){
+                display: none;
+            }
+            .container img:nth-of-type(3){
+                display: none;
+            }
+        }
+
+        @media(min-width:801px){
+            body{
+                background-image: url('bdd.jpg');
+                background-repeat: no-repeat;
+                background-size: cover ;
+                /* position: relative; */
+            }
+            .container{
+                height: auto;
+                display: flex;
+                margin: 20px 30px;
+                max-width: 100%;
+                align-content: center;
+                justify-content: space-between;
+            }
+            .container #list ul{
+                margin: 5px 0;
+                height: auto;
+                display: flex;
+                /* flex-grow: 1; */
+                align-content: center;
+                list-style-type: none;
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+            .container img:nth-of-type(1){
+                height: 48px;
+                align-self: center;
+            }
+
+            .container #list ul li{
+                font-size: 18px;
+                align-self: center;
+                padding: 20px 40px;
+            }
+            .container #list ul li a{
+                text-decoration: none;
+                color: rgba(231, 193, 193, 0.7);
+            }
+            .container #list ul li a:hover{
+                border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+            }
+            .container #list ul li:nth-last-of-type(4)::before{
+                content: '00 ';
+                color: white;
+            }
+            .container #list ul li:nth-last-of-type(3)::before{
+                content: '01 ';
+                color: white;
+            }
+            .container #list ul li:nth-last-of-type(2)::before{
+                content: '02 ';
+                color: white;
+            }
+            .container #list ul li:nth-last-of-type(1)::before{
+                content: '03 ';
+                color: white;
+            }
+            .sectionCombine{
+                display: flex;
+                justify-content: space-between;
+                padding: 100px 150px;
+            }
+            .pick-image h1{
+                font-size: 32px;
+                font-weight: 100;
+                color: rgba(255, 255, 255, 0.8);
+            }
+            .pick-image h1 span{
+                color: rgba(255, 255, 255, 0.5);
+            }
+            .pick-image img{
+                margin-top: 100px;
+                margin-left: 100px;
+            }
+            .property{
+                padding-top: 150px;
+                height: 500px;
+                width: 600px;
+                padding-left: 120px;
+                /* background-color: pink; */
+            }
+            .property .planet ol{
+                display: flex;
+                list-style-type: none;
+                color: rgba(255, 255, 255, 0.5);
+            }
+            .property .planet ol li{
+                cursor: pointer;
+                padding-right:10px ;
+                font-size: 20px;
+                font-weight: 100;
+                font-style:normal;
+            }
+            .property h1{
+                padding: 20px 0;
+                font-size: 80px;
+                font-weight: 100;
+                color: rgba(255, 255, 255, 0.9);
+            }
+            .property p{
+                line-height: 1.5;
+                color: rgba(255, 255, 255, 0.7);
+                font-size: 19px;
+                padding-right: 40px;
+                padding-bottom: 20px;
+            }
+            .property hr{
+                margin-right: 40px;
+                margin-bottom: 20px;
+            }
+            .property table tr:nth-of-type(1){
+                padding: 5px 0;
+                font-size: 15px;
+                color: rgba(255, 255, 255, 0.5);
+            }
+            .property table tr:nth-of-type(2){
+                font-size: 30px;
+                color:rgba(225, 225, 225, 0.6);
+                padding: 3px 0;
+            }
+
+
+
+
+            .container #list{
+                display: flex;
+                height: auto;
+                width: 50%;
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+
+            .container img:nth-of-type(2){
+                display: none;
+            }
+            .container img:nth-of-type(3){
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container" id="container">
+            <img src="logo.svg" alt="nav-icon">
+            <div id="list">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="destination.html">DESTINATION</a></li>
+                    <li><a href="crew.html">CREW</a></li>
+                    <li><a href="technology.html">TECHNOLOGY</a></li>
+                </ul>
+            </div>
+            <img src="ic.svg" alt="close-icon" id="imgI">
+            <img src="im.svg" alt="menu-icon" id="img">
+            
+        </div>
+    </nav>
+
+    <div class="sectionCombine">
+        <section>
+            <div class="pick-image">
+                <h1><span id="span">01</span>  PICK YOUR DESTINATION</h1>
+                <img src="image-mars.png" alt="planet's-image" id="planet-image">
+            </div>
+        </section>
+        <section>
+            <div class="property">
+                <div class="planet">
+                    <ol>
+                        <li id="li-1">MOON</li>
+                        <li id="li-2">MARS</a></li>
+                        <li id="li-3">EUROPA</li>
+                        <li id="li-4">TITAN</li>
+                    </ol>
+                </div>
+                <h1 id="magnify">
+                    MARS
+                </h1>
+                <p id="p"> Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons
+                , the tallest planetary mountain in our solar system. It’s two and a half times the 
+                size of Everest
+                </p>
+                <hr>
+                <table >
+                    <tr><td>AVG. DISTANCE</td>
+                    <td>EST. TRAVEL TIME</td></tr>
+                    <tr><td id="td1">225MIL. KM</td>
+                    <td id="td2">9 MONTHS</td></tr>
+                 </table>
+            </div>
+        </section>
+    </div>
+
+    <script src="index.js"></script>
+    <script>
+        let td1 = document.getElementById('td1')
+        let td2 = document.getElementById('td2')
+        let p = document.getElementById('p')
+        let span = document.getElementById('span')
+        let h1 = document.getElementById('magnify')
+        let img = document.getElementById('planet-image')
+        let li1 = document.getElementById('li-1')
+        let li2 = document.getElementById('li-2')
+        let li3 = document.getElementById('li-3')
+        let li4 = document.getElementById('li-4')
+
+        li1.onclick = function(){
+            img.src = `image-moon.png`
+            span.innerHTML = `00`
+            h1.innerHTML = `MOON`
+            p.innerHTML = `See our planet as you’ve never seen it before. A perfect relaxing trip away to help
+                           regain perspective and come back refreshed. While you’re there, take in some
+                            history by visiting the Luna 2 and Apollo 11 landing sites.`
+            td1.innerHTML = `384,400 km`
+            td2.innerHTML = `3 DAYS `
+        }
+        li2.onclick = function(){
+            img.src = `image-mars.png`
+            span.innerHTML = `01`
+            h1.innerHTML = `MARS`
+            p.innerHTML = `Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, 
+                           the tallest planetary mountain in our solar system. It’s two and a half times the 
+                           size of Everest!`
+            td1.innerHTML = `225 MIL. KM`
+            td2.innerHTML = `9 MONTHS`
+        }
+
+        li3.onclick = function(){
+            img.src = `image-europa.png`
+            span.innerHTML = `02`
+            h1.innerHTML = `EUROPA`
+            p.innerHTML = `The smallest of the four Galilean moons orbiting Jupiter, Europa is a winter lover’s dream. With an icy surface, it’s
+                           perfect for a bit of ice skating, curling, hockey, or simple relaxation in your 
+                           snug wintery cabin.`
+            td1.innerHTML = `628 MIL. KM`
+            td2.innerHTML = `3 YEARS`
+        }
+
+        li4.onclick = function(){
+            img.src = `image-titan.png`
+            span.innerHTML = `03`
+            h1.innerHTML = `TITAN`
+            p.innerHTML = `The only moon known to have a dense atmosphere other than Earth, Titan is a home away from 
+                           home (just a few hundred degrees colder!). As a bonus, you get striking views of the
+                           Rings of Saturn.`
+            td1.innerHTML = `1.6 BIL. KM`
+            td2.innerHTML = `7 YEARS`
+        }
+        
+
+    </script>
+</body>
+</html>

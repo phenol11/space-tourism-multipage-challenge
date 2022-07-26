@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Space Tourism | challenge by front-end mentor</title>
+
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        @media(max-width:375px){
+            body{
+            background: url('bcd.jpg');
+            height: auto;
+            background-repeat: no-repeat;
+            background-size: cover;
+            }
+            .container{
+                margin: 10px 20px;
+                max-width: 375px;
+                display: flex;
+                justify-content: space-between;
+                height: auto;
+                align-content: center;
+                position: relative;
+            }
+            .container #imgI{
+                height: 24px;
+                align-self: center;
+                display: none;
+            }
+            .container #list{
+                display: none;
+            }
+            .container #list ul{
+                margin: 5px 0;
+                list-style: none;
+                color: white;
+            }
+            .container #list ul li{
+                margin: 5px auto;
+                background-color: rgba(255, 255, 255, 0.8);
+            }
+            .container #list ul li a{
+                text-decoration: none;
+                padding: 2px 5px;
+                color: rgba(255, 255, 255, 0.8);
+            }
+            .container #list ul li:nth-of-type(1){
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+            .container #list ul li:hover{
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+            .container img:nth-of-type(1){
+                height: 48px;
+            }
+            .container #img{
+                align-self: center;
+                height: 24px;
+            }
+
+            .container-img{
+                width: 100%;
+                margin: 40px 0;
+                display: flex;
+                justify-content: center;
+            }
+            .container-img img{
+                width: 350px;
+            }
+            .containerBtn{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+            .containerBtn button{
+                border-radius: 50%;
+                width: 13px;
+                height: 13px;
+                margin: 5px;
+                border: none;
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+            .containerBtn button:hover{
+                background-color: rgba(255, 255, 255, 0.9);
+            }
+            
+            #container-text-1{
+                opacity: 0.8;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                max-width: 350px;
+                margin: 0 12.5px;
+                text-align: center;
+            }
+            #container-text-1 h1{
+                font-size: 14px;
+                color:rgba(255, 255, 255, 0.3) ;
+                padding-bottom: 5px;
+            }
+            #container-text-1 p{
+                font-size: 21px;
+                color: rgba(255, 255, 255, 0.8);
+            }
+            #container-text-2{
+                opacity: 0.8;
+                display: flex;
+                justify-content: center;
+                max-width: 335px;
+                margin: 20px 20px;
+                text-align: center;
+                height: auto;
+            }
+            #container-text-2 p{
+                color: rgba(255, 255, 255, 0.5);
+                line-height: 1.5;
+            }
+            #about{
+                margin:20px 20px;
+                display: flex;
+                justify-content: center;
+                color: rgba(255, 255, 255, 0.8);
+                font-size: 20px;
+                font-weight: 200;
+            }
+            #about span{
+                color: rgba(255, 255, 255, 0.3);
+                margin-right: 5px;
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+             /* conditional css */
+
+            .imgBtnI, .imgBtn{
+                position: absolute;
+                top: 11px;
+                right: 0;
+            }
+        }
+       @media(max-width:800px) and (min-width:376px){
+            body{
+                background-image: url('bct.jpg');
+                background-repeat: no-repeat;
+                background-size: cover ;
+            }
+            .container{
+                height: auto;
+                display: flex;
+                margin: 10px 20px;
+                max-width: 800px;
+                align-content: center;
+                justify-content: space-between;
+            }
+            .container #list ul{
+            margin: 5px 0;
+            height: auto;
+            display: flex;
+            align-content: center;
+            list-style-type: none;
+            background-color: rgba(0, 0, 0, 0.8);
+            }
+            .container #list ul li{
+            align-self: center;
+            padding: 10px 20px;
+            }
+            .container #list ul li a{
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.7);
+            }
+            .container #list ul li a:hover{
+            border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+            }
+            .container-img{
+                width: 100%;
+                margin: 40px 0;
+                display: flex;
+                justify-content: center;
+            }
+            .container-img img{
+                width: 380px;
+            }
+            #about{
+                margin:50px 40px;
+                display: flex;
+                justify-content: start;
+                color: rgba(255, 255, 255, 0.8);
+                font-size: 20px;
+                font-weight: 200;
+            }
+            #about span{
+                color: rgba(255, 255, 255, 0.3);
+                margin-right: 5px;
+            }
+
+            .containerBtn{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+            .containerBtn button{
+                border-radius: 50%;
+                width: 13px;
+                height: 13px;
+                margin: 5px;
+                border: none;
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+            .containerBtn button:hover{
+                background-color: rgba(255, 255, 255, 0.9);
+            }
+            #container-text-1{
+                opacity: 0.8;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                max-width: 700px;
+                margin: 0 50px;
+                text-align: center;
+            }
+            #container-text-1 h1{
+                font-size: 14px;
+                color:rgba(255, 255, 255, 0.3) ;
+                padding-bottom: 5px;
+            }
+            #container-text-1 p{
+                font-size: 21px;
+                color: rgba(255, 255, 255, 0.8);
+            }
+            #container-text-2{
+                opacity: 0.8;
+                display: flex;
+                justify-content: center;
+                max-width: 600px;
+                margin: 20px 200px;
+                text-align: center;
+                height: auto;
+            }
+            #container-text-2 p{
+                color: rgba(255, 255, 255, 0.5);
+                line-height: 1.5;
+            }
+
+
+             /* conditional css */
+     
+            .container #list{
+                display: block;
+                height: auto;
+            }
+
+            .container img:nth-of-type(2){
+                display: none;
+            }
+            .container img:nth-of-type(3){
+                display: none;
+            }
+        }
+        @media(min-width:801px){
+            body{
+                background-image: url('bcd.jpg');
+                background-repeat: no-repeat;
+                background-size: cover ;
+                position: relative;
+            }
+            .container{
+                height: auto;
+                display: flex;
+                margin: 20px 30px;
+                max-width: 100%;
+                align-content: center;
+                justify-content: space-between;
+            }
+            .container #list ul{
+                margin: 5px 0;
+                height: auto;
+                display: flex;
+                /* flex-grow: 1; */
+                align-content: center;
+                list-style-type: none;
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+            .container img:nth-of-type(1){
+                height: 48px;
+                align-self: center;
+            }
+
+            .container #list ul li{
+                font-size: 18px;
+                align-self: center;
+                padding: 20px 40px;
+            }
+            .container #list ul li a{
+                text-decoration: none;
+                color: rgba(231, 193, 193, 0.7);
+            }
+            .container #list ul li a:hover{
+                border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+            }
+            .container #list ul li:nth-last-of-type(4)::before{
+                content: '00 ';
+                color: white;
+            }
+            .container #list ul li:nth-last-of-type(3)::before{
+                content: '01 ';
+                color: white;
+            }
+            .container #list ul li:nth-last-of-type(2)::before{
+                content: '02 ';
+                color: white;
+            }
+            .container #list ul li:nth-last-of-type(1)::before{
+                content: '03 ';
+                color: white;
+            }
+            .container-img{
+                max-width: 100%;
+                margin: 0 120px;
+                width: 50%;
+                float: right;
+                text-align: end;
+            }
+            .container-img img{
+                width: 500px;
+            }
+
+            #about{
+                margin-left: 120px;
+                margin-right: 120px;
+                margin-top: 100px;
+                margin-bottom: 130px;
+                color: rgba(255, 255, 255, 0.8);
+                font-size: 25px;
+                font-weight: lighter;
+            }
+            #about span{
+                color: rgba(255, 255, 255, 0.3);
+                margin-right: 6px;
+                font-size: 25px;
+                font-weight: lighter;
+            }
+            #container-text-1{
+                opacity: 0.8;
+                max-width: 98%;
+                margin-left: 120px;
+                margin-right: 120px;
+                margin-top: 80px;
+                margin-bottom: 30px;
+                text-align: start;
+            }
+            #container-text-1 h1{
+                font-weight: lighter;
+                font-size: 22px;
+                color:rgba(255, 255, 255, 0.3) ;
+                padding-bottom: 10px;
+            }
+            #container-text-1 p{
+                font-size: 35px;
+                font-weight: lighter;
+                color: rgba(255, 255, 255, 0.8);
+            }
+            #container-text-2{
+                opacity: 0.8;
+                max-width: 98%;
+                margin: 20px 120px;
+                text-align: start;
+                height: auto;
+                width: 29%;
+            }
+            #container-text-2 p{
+                color: rgba(255, 255, 255, 0.5);
+                font-size: 20px;
+                line-height: 2;
+            }
+            .containerBtn{
+                max-width: 100%;
+                margin-bottom: 30px;
+                margin-left: 120px;
+                position: absolute;
+                top: 700px; 
+            }
+            .containerBtn button{
+                border-radius: 50%;
+                width: 15px;
+                height: 15px;
+                cursor: pointer;
+                margin: 8px;
+                border: none;
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+            .containerBtn button:hover{
+                background-color: rgba(255, 255, 255, 0.9);
+            }
+
+
+
+
+
+
+            .container #list{
+                display: flex;
+                height: auto;
+                width: 50%;
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+
+            .container img:nth-of-type(2){
+                display: none;
+            }
+            .container img:nth-of-type(3){
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container" id="container">
+            <img src="logo.svg" alt="nav-icon">
+            <div id="list">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="destination.html">DESTINATION</a></li>
+                    <li><a href="crew.html">CREW</a></li>
+                    <li><a href="technology.html">TECHNOLOGY</a></li>
+                </ul>
+            </div>
+            <img src="ic.svg" alt="close-icon" id="imgI">
+            <img src="im.svg" alt="menu-icon" id="img">
+            
+        </div>
+    </nav>
+    <section><div id="about"><span>02</span> MEET YOUR CREW</div></section>
+    <section>
+        <div class="container-img">
+           <img src="iaa.png" alt="iaa's image" id="img-crew">
+        </div>
+    </section>
+
+    <section>
+        <div class="containerBtn">
+            <button  id="btn-1"></button>
+            <button  id="btn-2"></button>
+            <button  id="btn-3"></button>
+            <button  id="btn-4"></button>
+        </div>
+    </section>
+
+    <section>
+        <div id="container-text-1">
+           <h1 class="h1">FLIGHT ENGINEER</h1>
+           <p id="p1">ANOUSHEH ANSARI</p>
+        </div>
+        <div id="container-text-2">
+            <p id="p2">Anousheh Ansari is an Iranian American engineer and co-founder of Prodea Systems. Ansari was the fourth sel
+            f-funded space tourist, the first self-funded woman to fly to the ISS, and the first Iranian in 
+            space.
+            </p>
+        </div>
+    </section>
+
+    <script src="index.js"></script>
+    <script>
+        let btn1 = document.getElementById('btn-1')
+        let btn2 = document.getElementById('btn-2')
+        let btn3 = document.getElementById('btn-3')
+        let btn4 = document.getElementById('btn-4')
+
+        let imgCrew = document.getElementById('img-crew')
+
+        let h1 = document.querySelector('h1')
+
+        let p1 = document.getElementById('p1')
+
+        let p2 = document.getElementById('p2')
+
+
+        let mYC = document.getElementById('about')
+
+        btn1.onclick = function(){
+            h1.textContent = 'COMMANDER'
+            p1.textContent = 'DOUGLAS HURLEY'
+            p2.textContent = `Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and
+                              former NASA astronaut. He launched into space for the third time as commander 
+                              of Crew Dragon Demo-2.`
+            imgCrew.src =`idh.png`
+            mYC.innerHTML = `<span> 01 </span> MEET YOUR CREW `
+        }
+
+        btn2.onclick = function(){
+            h1.textContent = 'FLIGHT ENGINEER'
+            p1.textContent = 'ANOUSHEH ANSARI '
+            p2.textContent = `Anousheh Ansari is an Iranian American engineer and co-founder of Prodea Systems. Ansari was the fourth sel
+                              f-funded space tourist, the first self-funded woman to fly to the ISS, and the 
+                              first Iranian in space.`
+            imgCrew.src =`iaa.png`
+            mYC.innerHTML = `<span> 02 </span> MEET YOUR CREW `
+        }
+        btn3.onclick = function(){
+            h1.textContent = 'PILOT'
+            p1.textContent = 'VICTOR GLOVER '
+            p2.textContent = ` Pilot on the first operational flight of the SpaceX Crew Dragon to the International Space Station. Glover is a commander in the U.S. Navy where he pi
+                               lots an F/A-18.He was a crew member of Expedition 64, and served as a station 
+                               systems flight engineer.`
+            imgCrew.src =`img.png`
+            mYC.innerHTML = `<span> 03 </span> MEET YOUR CREW `
+        }
+        btn4.onclick = function(){
+            h1.textContent = 'MISSION SPECIALIST'
+            p1.textContent = ' MARK SHUTTLEWORTH '
+            p2.textContent = ` Mark Richard Shuttleworth is the founder and CEO of Canonical, the company behind the Linux-based Ubuntu 
+                              operating system. Shuttleworth became the first South African to travel to space 
+                              as a space tourist.`
+            imgCrew.src =`ims.png`
+            mYC.innerHTML = `<span> 04 </span> MEET YOUR CREW `
+        }
+    </script>
+</body>
+</html>
